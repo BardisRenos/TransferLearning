@@ -8,12 +8,12 @@ from keras.layers import Dense, GlobalAveragePooling2D
 from keras.utils import np_utils
 
 # The size that we want to reformat all the images in the same dimensions
-IMG_SIZE = 224
+IMG_SIZE = 250
 
 
 def create_training_data() -> list:
     # Here we set the path of the dataset.
-    DATALOCATION = 'C:\\Users\\Renos\\Desktop\\PetImages'
+    DATALOCATION = 'C:\\path\\of\\the\\file'
     # The categories of the data set. Are two only Cats and dogs. Hence, Dog is category 0 and the Cat is 1
     CATEGORIES = ["Dog", "Cat"]
     training_data = []
