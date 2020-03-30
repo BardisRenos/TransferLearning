@@ -35,7 +35,7 @@ From the model I can change the input layer size and the last layer, the classif
  vgg_model = VGG16(weights='imagenet', include_top=False, input_shape=(IMG_SIZE, IMG_SIZE, 3))
 ```
 
-The other part is to add how many full connected layers with the number of neurons accordingly. Finally, the number of classes to  
+The other part is to add how many full connected layers with the number of neurons accordingly. Finally, the number of classes of the data that need to be classify. In this case, only 2 classes. 
 
 ```python
     # Full connected layer with 1024 neurons
