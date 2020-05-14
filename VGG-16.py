@@ -71,7 +71,7 @@ def train_model():
     model = Model(inputs=vgg_model.input, outputs=output)
 
     # We stop the layers to be trained
-    for layer in model.layers:
+    for layer in model.layers[:-3]:
         layer.trainable = False
 
     print(model.summary())
