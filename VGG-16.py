@@ -60,10 +60,9 @@ def train_model():
     # We can add the last part the classier layers
     x = vgg_model.output
     x = GlobalAveragePooling2D()(x)
-    # Full connected layer with 1024 neurons
+    # Full connected layers with 1024 neurons
     x = Dense(1024, activation='relu')(x)  # dense layer 1
     x = Dense(1024, activation='relu')(x)  # dense layer 2
-    x = Dense(4096, activation='relu')(x)  # dense layer 3
     # We change the output leyar to 2 classes from 1000 classes before
     output = Dense(2, activation='softmax')(x)
 
