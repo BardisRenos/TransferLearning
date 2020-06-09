@@ -26,10 +26,38 @@ Transfer learning is another approach that we can use to classify images. Transf
 Transfer learning, can be very useful because Deep convolutional neural network models may take days or even weeks to train on very large datasets. Also, produces better results than to use a non pretrained model in less time. The advantages are:
     
    1. There is no need of an extremely large training dataset.
-   2. Not much computational power is required.As we are using pre-trained weights and only have to learn the weights of the last few layers.
+   2. Not much computational power is required. As we are using pre-trained weights and only have to learn the weights of the last few          layers.
 
 ## How can build a transfer learning?
 From the model, I can change the input layer size and the last layer, the classification layer. The input layer changes from 224 by 224 pixels to 250 by 250 pixels in RGB image. Also, not including the classification part.
+
+## Retrieve the data set
+
+In our case we have a dataset that consists two classes (dogs and cats). However, the dataset is not ready to use in order to feed a convolutional neural network. Therefore, is needed to reshape those images into proper structure.   
+
+```python
+
+def create_training_data() -> list:
+    # Here we set the path of the dataset.
+    DATALOCATION = 'C:\\path\\of\\the\\file'
+    # The categories of the data set. Are two only Cats and dogs. Hence, Dog is category 0 and the Cat is 1
+    CATEGORIES = ["Dog", "Cat"]
+    training_data = []
+    for categories in CATEGORIES:
+        path = os.path.join(DATALOCATION, categories)
+        class_num = CATEGORIES.index(categories)
+        for img in os.listdir(path):
+            try:
+                img_array = cv2.imread(os.path.join(path, img))
+                img_array = cv2.resize(img_array, (IMG_SIZE, IMG_SIZE))
+                training_data.append([img_array, class_num])
+            except Exception as e:
+                pass
+
+    return training_data
+```
+
+
 
 ```python
 # The size that we want to reformat all the images in the same dimensions
