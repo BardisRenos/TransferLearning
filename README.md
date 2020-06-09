@@ -1,4 +1,4 @@
-# An example of Deep Learning using transfer learning in Keras.
+# An example of Deep Learning by using Transfer Learning in Keras.
 
 
 <p align="center"> 
@@ -29,7 +29,7 @@ Transfer learning, can be very useful because Deep convolutional neural network 
    2. Not much computational power is required.As we are using pre-trained weights and only have to learn the weights of the last few layers.
 
 ## How can build a transfer learning?
-From the model, I can change the input layer size and the last layer, the classification layer. The input layer changes from 224 by 224 pixels to 250 by 250 pixels in RGB image.
+From the model, I can change the input layer size and the last layer, the classification layer. The input layer changes from 224 by 224 pixels to 250 by 250 pixels in RGB image. Also, not including the classification part.
 
 ```python
 # The size that we want to reformat all the images in the same dimensions
@@ -47,4 +47,5 @@ The other part is to add how many full connected layers with the number of neuro
     # We change the output leyar to 2 classes from 1000 classes before
     output = Dense(2, activation='softmax')(x)
 ```
+
 
